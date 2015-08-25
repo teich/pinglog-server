@@ -1,0 +1,32 @@
+<h2>Listing pings</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Network</th>
+      <th>Gateway</th>
+      <th>Google</th>
+      <th>Host</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for ping <- @pings do %>
+    <tr>
+      <td><%= ping.network %></td>
+      <td><%= ping.gateway %></td>
+      <td><%= ping.google %></td>
+      <td><%= ping.host %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: ping_path(@conn, :show, ping), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: ping_path(@conn, :edit, ping), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: ping_path(@conn, :delete, ping), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New ping", to: ping_path(@conn, :new) %>

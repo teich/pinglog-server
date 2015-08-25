@@ -1,0 +1,36 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :network, "Network", class: "control-label" %>
+    <%= text_input f, :network, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :gateway, "Gateway", class: "control-label" %>
+    <%= number_input f, :gateway, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :google, "Google", class: "control-label" %>
+    <%= number_input f, :google, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :host, "Host", class: "control-label" %>
+    <%= text_input f, :host, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

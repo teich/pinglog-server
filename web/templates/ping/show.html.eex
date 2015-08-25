@@ -1,0 +1,28 @@
+<h2>Show ping</h2>
+
+<ul>
+
+  <li>
+    <strong>Network:</strong>
+    <%= @ping.network %>
+  </li>
+
+  <li>
+    <strong>Gateway:</strong>
+    <%= @ping.gateway %>
+  </li>
+
+  <li>
+    <strong>Google:</strong>
+    <%= @ping.google %>
+  </li>
+
+  <li>
+    <strong>Host:</strong>
+    <%= @ping.host %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: ping_path(@conn, :edit, @ping) %>
+<%= link "Back", to: ping_path(@conn, :index) %>
