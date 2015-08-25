@@ -13,10 +13,9 @@ defmodule PinglogServer.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PinglogServer do
-    pipe_through :browser # Use the default browser stack
+  scope "/api", PinglogServer do
+    pipe_through :api # Use the default browser stack
 
-    get "/", PageController, :index
     resources "/pings", PingController
   end
 
