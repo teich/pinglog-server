@@ -1,6 +1,0 @@
-<h2>Edit ping</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: ping_path(@conn, :update, @ping) %>
-
-<%= link "Back", to: ping_path(@conn, :index) %>

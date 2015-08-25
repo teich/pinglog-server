@@ -1,7 +1,7 @@
-defmodule PinglogServer.Ping do
+defmodule PinglogServer.Log do
   use PinglogServer.Web, :model
 
-  schema "pings" do
+  schema "logs" do
     field :network, :string
     field :gateway, :float
     field :google, :float
