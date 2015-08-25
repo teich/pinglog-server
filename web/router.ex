@@ -21,6 +21,6 @@ defmodule PinglogServer.Router do
 
   scope "/api", PinglogServer do
     pipe_through :api
-    resources "/logs", LogController, only: [:index, :create]
+    resources "/logs", LogController, only: [:create]
   end
 end
