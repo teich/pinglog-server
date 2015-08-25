@@ -56,6 +56,12 @@ config :logger, level: :info
 #     config :pinglog_server, PinglogServer.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+# Configure secret_key_base for cookie-based session storage
+  config :my_app, PinglogServer.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Configure your database
+  config :my_app, PinglogServer.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  size: 20 # The amount of database connections in the pool
