@@ -29,5 +29,5 @@ config :pinglog_server, PinglogServer.Repo,
   url: System.get_env("DATABASE_URL"),
   size: 20 # The amount of database connections in the pool
 
-url: [scheme: "https", host: "enigmatic-ocean-6979.heroku.com", port: 443],
+url: [scheme: "https", host: "enigmatic-ocean-6979.herokuapp.com", port: 443],
 force_ssl: [rewrite_on: [:x_forwarded_proto]],
