@@ -13,10 +13,15 @@ defmodule PinglogServer.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/", PinglogServer do
+    pipe_through :browser
+    resources "/pings", PingController
+  end
+
   scope "/api", PinglogServer do
     pipe_through :api # Use the default browser stack
 
-    resources "/pings", PingController
+    resources "/pings", PingController, only: [:create]
   end
 
   # Other scopes may use custom stacks.
